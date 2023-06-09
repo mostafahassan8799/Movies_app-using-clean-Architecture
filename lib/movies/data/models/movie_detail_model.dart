@@ -16,7 +16,7 @@ class MovieDetailModel extends MovieDetail {
       MovieDetailModel(
           id: json["id"],
           geners: List<GenersModel>.from(
-              json["geners"].map((x) => GenersModel.fromJson(x))),
+              json["genres"].map((x) => GenersModel.fromJson(x))),
           backdropPath: json["backdrop_path"],
           overview: json["overview"],
           releaseDate: json["release_date"],

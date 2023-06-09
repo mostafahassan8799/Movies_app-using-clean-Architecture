@@ -1,10 +1,7 @@
-import 'dart:js';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app_clean_architecture/core/services/services_locator.dart';
 import 'package:movie_app_clean_architecture/core/utils/app_constance.dart';
@@ -252,7 +249,7 @@ class MovieDetailContent extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                 child: CachedNetworkImage(
-                  imageUrl: AppConstance.imageUrl(recommendation.backdropPath),
+                  imageUrl: AppConstance.imageUrl(recommendation.backdropPath!),
                   placeholder: (context, url) => Shimmer.fromColors(
                     baseColor: Colors.grey[850]!,
                     highlightColor: Colors.grey[800]!,
