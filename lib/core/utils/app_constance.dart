@@ -9,6 +9,8 @@ class AppConstance {
       '$kBaseUrl/movie/top_rated?api_key=$kApiKey';
   static String kMovieDetailsPath(int movieId) =>
       '$kBaseUrl/movie/$movieId?api_key=$kApiKey';
+  static String kRecommendationPath(int movieId) =>
+      '$kBaseUrl/movie/$movieId/recommendations?api_key=$kApiKey';
   static const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
   static String imageUrl(String path) => '$baseImageUrl$path';
 }

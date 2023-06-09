@@ -6,6 +6,7 @@ import 'package:movie_app_clean_architecture/movies/domain/repository/base_movie
 import 'package:movie_app_clean_architecture/movies/domain/usecases/get_movie_detials_usecase.dart';
 import 'package:movie_app_clean_architecture/movies/domain/usecases/get_now_playing_movie_use_case.dart';
 import 'package:movie_app_clean_architecture/movies/domain/usecases/get_popular_movie_use_case.dart';
+import 'package:movie_app_clean_architecture/movies/domain/usecases/get_recommendation_usecase.dart';
 import 'package:movie_app_clean_architecture/movies/domain/usecases/get_top_rated_movie_use_case.dart';
 import 'package:movie_app_clean_architecture/movies/presentation/controllers/bloc/movie_details_bloc.dart';
 import 'package:movie_app_clean_architecture/movies/presentation/controllers/movies_bloc.dart';
@@ -16,7 +17,7 @@ class ServicesLocator {
   void init() {
     /// Bloc
     getIt.registerFactory(() => MoviesBloc(getIt(), getIt(), getIt()));
-    getIt.registerFactory(() => MovieDetailsBloc(getIt()));
+    getIt.registerFactory(() => MovieDetailsBloc(getIt(), getIt()));
 
     /// Use Cases
     getIt.registerLazySingleton(() => GetNowPlayingMovieUseCase(
@@ -30,6 +31,9 @@ class ServicesLocator {
         ));
     getIt.registerLazySingleton(() => GetMovieDetialsUsecase(
           baseMovieRepository: getIt(),
+        ));
+    getIt.registerLazySingleton(() => GetRecommendationUsecase(
+          getIt(),
         ));
 
     /// Repository
